@@ -1,0 +1,11 @@
+<mat-spinner *ngIf="!cats; else gallery" class="spinner"></mat-spinner>
+
+<ng-template #gallery>
+  <div class="gallery">
+    <app-cat-card *ngFor="let cat of cats"
+                  [id]="cat.id"
+                  [url]="cat.url"
+      >
+    </app-cat-card>
+  </div>
+</ng-template>
