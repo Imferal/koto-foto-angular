@@ -1,0 +1,12 @@
+
+<mat-dialog-content class="img-container">
+  <img src="{{ cat.url }}" alt="#">
+</mat-dialog-content>
+<mat-dialog-actions class="footer">
+  ID фотографии: {{ cat.id }}
+
+  <button mat-button (click)="close()">
+    Закрыть
+  </button>
+</mat-dialog-actions>
+

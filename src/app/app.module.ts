@@ -16,6 +16,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { LocalStorageService } from './shared/services/localstorage.service';
+import { PhotoComponent } from './components/photo/photo.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { LocalStorageService } from './shared/services/localstorage.service';
     FavoritesComponent,
     HeaderComponent,
     FooterComponent,
+    PhotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { LocalStorageService } from './shared/services/localstorage.service';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatDialogModule,
     MatProgressSpinnerModule,
     MatCardModule,
     MatToolbarModule,

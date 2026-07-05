@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LocalStorageService } from '../../services/localstorage.service';
 import { Cat } from '../../models/cat.model';
+import { MatDialog } from '@angular/material/dialog';
+import { PhotoComponent } from '../../../components/photo/photo.component';
 
 @Component({
   selector: 'app-cat-card',
@@ -13,7 +15,10 @@ export class CatCardComponent implements OnInit {
 
   public isFavorite: boolean = false;
 
-  constructor(private localStorageService: LocalStorageService) { }
+  constructor(
+    private localStorageService: LocalStorageService,
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
     this.checkIsFavorite();
@@ -32,5 +37,12 @@ export class CatCardComponent implements OnInit {
     }
 
     this.checkIsFavorite();
+  }
+
+  handlePhotoClick(): void {
+    this.dialog.open(PhotoComponent, {
+      disableClose: false,
+      data: { cat: this.cat }
+    });
   }
 }

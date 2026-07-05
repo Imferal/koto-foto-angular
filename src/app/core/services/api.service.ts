@@ -9,7 +9,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getCats(limit: number): Observable<Cat[]> {
+  getCats(limit: number = 10): Observable<Cat[]> {
     return this.http.get<Cat[]>(`${this.baseURL}search?limit=${limit}`)
   }
 

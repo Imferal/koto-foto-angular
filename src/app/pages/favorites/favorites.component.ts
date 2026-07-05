@@ -5,7 +5,7 @@ import { LocalStorageService } from '../../shared/services/localstorage.service'
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
-  styleUrls: ['./favorites.component.scss', '../gallery/gallery.component.scss']
+  styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
   public favoriteCats: Cat[] | null = null;

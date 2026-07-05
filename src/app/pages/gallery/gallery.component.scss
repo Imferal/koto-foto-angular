@@ -3,11 +3,19 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1em;
 
-  padding: 16px 0 80px 0;
+  padding: 16px 0 0;
 }
 
 .spinner {
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 0 80px 0;
 }

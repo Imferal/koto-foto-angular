@@ -1,0 +1,22 @@
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: auto;
+  width: auto;
+
+  max-height: 90vh;
+  max-width: 90vw;
+
+  img {
+    object-fit: contain;
+    max-width: stretch;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

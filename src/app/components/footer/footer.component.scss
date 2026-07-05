@@ -2,9 +2,11 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 
   span {
-    width: 100%;
-    text-align: right;
+    font-size: 0.8em;
+    font-weight: 300;
   }
 }

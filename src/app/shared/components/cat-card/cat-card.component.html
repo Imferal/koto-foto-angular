@@ -1,8 +1,6 @@
 <mat-card class="card">
   <mat-card-content class="card__container">
-    <a [routerLink]="['/photo', cat.id]">
-      <img [src]="cat.url" alt="#">
-    </a>
+    <img [src]="cat.url" alt="#" (click)="handlePhotoClick()">
 
     <div (click)="handleFavoriteButtonClick()"
       [ngClass]="{
