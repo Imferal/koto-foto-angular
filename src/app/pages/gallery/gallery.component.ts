@@ -1,16 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../core/services/api.service';
 import { Cat } from '../../shared/models/cat.model';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
-export class GalleryComponent implements OnInit, OnDestroy {
+export class GalleryComponent implements OnInit {
+  loading = true;
+  error: string | null = null;
   cats: Cat[] | null = null;
-  private subscription: Subscription | null = null;
 
   constructor(private apiService: ApiService) { }
 
@@ -19,14 +19,22 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   getCats(): void {
-    this.subscription = this.apiService.getCats().subscribe(cats => {
-      this.cats = this.cats
-        ? [...this.cats, ...cats]
-        : cats;
-    })
+    this.apiService.getCats().subscribe({
+      next: cats => {
+        this.cats = this.cats
+          ? [...this.cats, ...cats]
+          : cats;
+        this.loading = false;
+      },
+      error: () => {
+        this.error = 'Не удалось загрузить фотографии.';
+        this.loading = false;
+      }
+    });
   }
 
-  ngOnDestroy(): void {
-    if (this.subscription) this.subscription.unsubscribe();
+
+  trackById(index: number, cat: Cat): string {
+    return cat.id;
   }
 }

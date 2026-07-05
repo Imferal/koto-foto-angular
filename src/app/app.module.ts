@@ -1,49 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ApiService } from './core/services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HeaderComponent } from './components/header/header.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CatCardComponent } from './shared/components/cat-card/cat-card.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { LocalStorageService } from './shared/services/localstorage.service';
 import { PhotoComponent } from './components/photo/photo.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     CatCardComponent,
-    GalleryComponent,
     FavoritesComponent,
-    HeaderComponent,
     FooterComponent,
+    GalleryComponent,
+    HeaderComponent,
     PhotoComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    MatToolbarModule,
+    BrowserModule,
+    HttpClientModule,
+    MaterialModule,
   ],
-  providers: [
-    ApiService,
-    LocalStorageService,
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,4 +19,8 @@ export class FavoritesComponent implements OnInit {
   getFavoriteCats(): void {
     this.favoriteCats = this.localStorageService.getFavoriteCats();
   }
+
+  trackById(index: number, cat: Cat): string {
+    return cat.id;
+  }
 }

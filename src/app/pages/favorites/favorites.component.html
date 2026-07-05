@@ -5,7 +5,7 @@
 
 <ng-template #gallery>
   <div class="gallery">
-    <app-cat-card *ngFor="let cat of favoriteCats"
+    <app-cat-card *ngFor="let cat of favoriteCats; trackBy(trackById)"
                   [cat]="cat"
                   (toggleFavorite)="getFavoriteCats()"
     >

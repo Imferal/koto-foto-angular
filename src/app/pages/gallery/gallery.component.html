@@ -1,16 +1,18 @@
-<mat-spinner *ngIf="!cats; else gallery" class="spinner"></mat-spinner>
+<mat-spinner *ngIf="loading" class="spinner"></mat-spinner>
 
-<ng-template #gallery>
-  <div class="gallery">
-    <app-cat-card *ngFor="let cat of cats"
-                  [cat]="cat"
-      >
-    </app-cat-card>
-  </div>
+<p *ngIf="error">
+  {{ error }}
+</p>
 
-  <div class="button-container">
-    <button mat-raised-button
-            color="primary"
-            (click)="getCats()">Больше котиков!</button>
-  </div>
-</ng-template>
+<div *ngIf="!loading && !error" class="gallery">
+  <app-cat-card *ngFor="let cat of cats; trackBy(trackById)"
+                [cat]="cat"
+    >
+  </app-cat-card>
+</div>
+
+<div class="button-container">
+  <button mat-raised-button
+          color="primary"
+          (click)="getCats()">Больше котиков!</button>
+</div>

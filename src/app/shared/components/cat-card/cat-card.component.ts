@@ -11,7 +11,7 @@ import { PhotoComponent } from '../../../components/photo/photo.component';
 })
 export class CatCardComponent implements OnInit {
   @Input() public cat!: Cat;
-  @Output() public toggleFavorite = new EventEmitter<Boolean>();
+  @Output() public toggleFavorite = new EventEmitter<boolean>();
 
   public isFavorite: boolean = false;
 

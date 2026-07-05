@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Cat } from '../models/cat.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LocalStorageService {
   getItem(key: string): unknown {
     const value = localStorage.getItem(key);
