@@ -1,10 +1,11 @@
 <mat-card class="card">
   <mat-card-content class="card__container">
-    <a [routerLink]="['/photo', id]">
-      <img [src]="url" alt="#">
+    <a [routerLink]="['/photo', cat.id]">
+      <img [src]="cat.url" alt="#">
     </a>
 
-    <div [ngClass]="{
+    <div (click)="handleFavoriteButtonClick()"
+      [ngClass]="{
       'favorite-button': true,
       active: isFavorite
     }">♥</div>

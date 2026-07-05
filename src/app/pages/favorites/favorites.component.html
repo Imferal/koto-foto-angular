@@ -1,1 +1,14 @@
-Избранное
+<p *ngIf="!favoriteCats; else gallery" class="no-favorites">
+  У вас пока нет любимых котиков. Что вы за человек-то такой? :(
+</p>
+
+
+<ng-template #gallery>
+  <div class="gallery">
+    <app-cat-card *ngFor="let cat of favoriteCats"
+                  [cat]="cat"
+                  (toggleFavorite)="getFavoriteCats()"
+    >
+    </app-cat-card>
+  </div>
+</ng-template>

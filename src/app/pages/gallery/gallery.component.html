@@ -3,8 +3,7 @@
 <ng-template #gallery>
   <div class="gallery">
     <app-cat-card *ngFor="let cat of cats"
-                  [id]="cat.id"
-                  [url]="cat.url"
+                  [cat]="cat"
       >
     </app-cat-card>
   </div>

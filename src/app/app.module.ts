@@ -15,6 +15,7 @@ import { CatCardComponent } from './shared/components/cat-card/cat-card.componen
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { LocalStorageService } from './shared/services/localstorage.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   providers: [
     ApiService,
+    LocalStorageService,
   ],
   bootstrap: [AppComponent]
 })
