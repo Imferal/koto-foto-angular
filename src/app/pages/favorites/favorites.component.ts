@@ -3,9 +3,10 @@ import { Cat } from '../../shared/models/cat.model';
 import { LocalStorageService } from '../../shared/services/localstorage.service';
 
 @Component({
-  selector: 'app-favorites',
-  templateUrl: './favorites.component.html',
-  styleUrls: ['./favorites.component.scss']
+    selector: 'app-favorites',
+    templateUrl: './favorites.component.html',
+    styleUrls: ['./favorites.component.scss'],
+    standalone: false
 })
 export class FavoritesComponent implements OnInit {
   public favoriteCats: Cat[] | null = null;

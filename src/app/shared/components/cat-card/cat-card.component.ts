@@ -5,9 +5,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { PhotoComponent } from '../../../components/photo/photo.component';
 
 @Component({
-  selector: 'app-cat-card',
-  templateUrl: './cat-card.component.html',
-  styleUrls: ['./cat-card.component.scss']
+    selector: 'app-cat-card',
+    templateUrl: './cat-card.component.html',
+    styleUrls: ['./cat-card.component.scss'],
+    standalone: false
 })
 export class CatCardComponent implements OnInit {
   @Input() public cat!: Cat;

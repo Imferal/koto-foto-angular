@@ -3,9 +3,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Cat } from '../../shared/models/cat.model';
 
 @Component({
-  selector: 'app-photo',
-  templateUrl: './photo.component.html',
-  styleUrls: ['./photo.component.scss']
+    selector: 'app-photo',
+    templateUrl: './photo.component.html',
+    styleUrls: ['./photo.component.scss'],
+    standalone: false
 })
 export class PhotoComponent {
   public cat: Cat;
