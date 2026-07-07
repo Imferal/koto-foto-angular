@@ -1,14 +1,17 @@
-<p *ngIf="!favoriteCats; else gallery" class="no-favorites">
-  У вас пока нет любимых котиков. Что вы за человек-то такой? :(
-</p>
-
-
-<ng-template #gallery>
+@if (!favoriteCats) {
+  <p class="no-favorites">
+    У вас пока нет любимых котиков. Что вы за человек-то такой? :(
+  </p>
+} @else {
   <div class="gallery">
-    <app-cat-card *ngFor="let cat of favoriteCats; trackBy(trackById)"
-                  [cat]="cat"
-                  (toggleFavorite)="getFavoriteCats()"
-    >
-    </app-cat-card>
+    @for (cat of favoriteCats; track cat) {
+      <app-cat-card
+        [cat]="cat"
+        (toggleFavorite)="getFavoriteCats()"
+        >
+      </app-cat-card>
+    }
   </div>
-</ng-template>
+}
+
+
