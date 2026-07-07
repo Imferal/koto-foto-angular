@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ApiService } from '../../core/services/api.service';
 import { Cat } from '../../shared/models/cat.model';
 
@@ -6,6 +6,7 @@ import { Cat } from '../../shared/models/cat.model';
     selector: 'app-gallery',
     templateUrl: './gallery.component.html',
     styleUrls: ['./gallery.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class GalleryComponent implements OnInit {

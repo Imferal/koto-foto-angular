@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
@@ -24,5 +24,5 @@ import { MaterialModule } from './material/material.module';
     bootstrap: [AppComponent], imports: [AppRoutingModule,
         BrowserAnimationsModule,
         BrowserModule,
-        MaterialModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        MaterialModule], providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())] })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { LocalStorageService } from '../../services/localstorage.service';
 import { Cat } from '../../models/cat.model';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,6 +8,7 @@ import { PhotoComponent } from '../../../components/photo/photo.component';
     selector: 'app-cat-card',
     templateUrl: './cat-card.component.html',
     styleUrls: ['./cat-card.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CatCardComponent implements OnInit {

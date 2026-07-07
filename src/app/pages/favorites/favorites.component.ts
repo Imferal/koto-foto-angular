@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Cat } from '../../shared/models/cat.model';
 import { LocalStorageService } from '../../shared/services/localstorage.service';
 
@@ -6,6 +6,7 @@ import { LocalStorageService } from '../../shared/services/localstorage.service'
     selector: 'app-favorites',
     templateUrl: './favorites.component.html',
     styleUrls: ['./favorites.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class FavoritesComponent implements OnInit {
