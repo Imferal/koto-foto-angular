@@ -1,26 +1,18 @@
-@if (loading) {
-  <mat-spinner class="spinner"></mat-spinner>
-}
+<mat-spinner *ngIf="loading" class="spinner"></mat-spinner>
 
-@if (error) {
-  <p>
-    {{ error }}
-  </p>
-}
+<p *ngIf="error">
+  {{ error }}
+</p>
 
-@if (!loading && !error) {
-  <div class="gallery">
-    @for (cat of cats; track cat) {
-      <app-cat-card
-        [cat]="cat"
-        >
-      </app-cat-card>
-    }
-  </div>
-}
+<div *ngIf="!loading && !error" class="gallery">
+  <app-cat-card *ngFor="let cat of cats; trackBy(trackById)"
+                [cat]="cat"
+    >
+  </app-cat-card>
+</div>
 
 <div class="button-container">
   <button mat-raised-button
-    color="primary"
-  (click)="getCats()">Больше котиков!</button>
+          color="primary"
+          (click)="getCats()">Больше котиков!</button>
 </div>

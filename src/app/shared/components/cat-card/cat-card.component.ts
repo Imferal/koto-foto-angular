@@ -3,13 +3,21 @@ import { LocalStorageService } from '../../services/localstorage.service';
 import { Cat } from '../../models/cat.model';
 import { MatDialog } from '@angular/material/dialog';
 import { PhotoComponent } from '../../../components/photo/photo.component';
+import { MatCard, MatCardContent } from '@angular/material/card';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 
 @Component({
     selector: 'app-cat-card',
     templateUrl: './cat-card.component.html',
     styleUrls: ['./cat-card.component.scss'],
     changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    standalone: true,
+  imports: [
+    MatCard,
+    MatCardContent,
+    NgClass,
+    NgOptimizedImage,
+  ],
 })
 export class CatCardComponent implements OnInit {
   @Input() public cat!: Cat;

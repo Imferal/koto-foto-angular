@@ -1,20 +1,30 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { ApiService } from '../../core/services/api.service';
 import { Cat } from '../../shared/models/cat.model';
+import { MatButton } from '@angular/material/button';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { CatCardComponent } from '../../shared/components/cat-card/cat-card.component';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
-    selector: 'app-gallery',
-    templateUrl: './gallery.component.html',
-    styleUrls: ['./gallery.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-gallery',
+  templateUrl: './gallery.component.html',
+  styleUrls: ['./gallery.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
+  standalone: true,
+  imports: [
+    MatButton,
+    MatProgressSpinner,
+    CatCardComponent,
+    NgIf,
+    NgFor,
+  ],
 })
 export class GalleryComponent implements OnInit {
+  private apiService = Inject(ApiService);
   loading = true;
   error: string | null = null;
   cats: Cat[] | null = null;
-
-  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.getCats();
@@ -22,7 +32,7 @@ export class GalleryComponent implements OnInit {
 
   getCats(): void {
     this.apiService.getCats().subscribe({
-      next: cats => {
+      next: (cats: Cat[]) => {
         this.cats = this.cats
           ? [...this.cats, ...cats]
           : cats;
@@ -31,7 +41,7 @@ export class GalleryComponent implements OnInit {
       error: () => {
         this.error = 'Не удалось загрузить фотографии.';
         this.loading = false;
-      }
+      },
     });
   }
 
