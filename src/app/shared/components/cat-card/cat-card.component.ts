@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LocalStorageService } from '../../services/localstorage.service';
 import { Cat } from '../../models/cat.model';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { PhotoComponent } from '../../../components/photo/photo.component';
 
 @Component({
